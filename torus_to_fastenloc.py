@@ -23,7 +23,7 @@ pip = pip.loc[pip["PIP"] >= 1e-4, :] # Based on fastENLOC's summarize_dap2enloc.
 
 snps = {}
 for x in pip.to_dict(orient="records"):
-    rec = f"[{x['gene_id']}:1@{args.tissue}={x['PIP']}[{x['PIP_clust']:g}:{x['size_clust']}]"
+    rec = f"{x['gene_id']}:1@{args.tissue}={x['PIP']}[{x['PIP_clust']:g}:{x['size_clust']}]"
     if x["var"] in snps:
         snps[x["var"]].append(rec)
     else:
